@@ -19,18 +19,32 @@ public class IRestaurantServiceImpl implements IRestaurantService{
 		@Autowired
 		IRestaurantRepository restaurantRepository;
 
+		
+		/* @author : Harshali
+	     * @return : Restaurant
+	     * @description : This method is to add restaurant in the repository and returns restaurant
+	     */
 		@Override
 		public RestaurantDto addRestaurant(RestaurantDto res) throws RestaurantException {
 			if(restaurantRepository.existsById(res.getRestaurantId()))
 				throw new RestaurantException("Restaurant already exists");
 			return restaurantRepository.save(res);
 		}
+		
+		/* @author : Harshali
+	     * @return : Restaurant
+	     * @description : This method is to update restaurant in the repository and returns restaurant
+	     */
 
 		@Override
 		public RestaurantDto updateRestaurant(RestaurantDto res) {
 			return restaurantRepository.save(res);
 		}
 
+		/* @author : Harshali
+	     * @return : Restaurant
+	     * @description : This method is to remove restaurant in the repository and returns restaurant
+	     */
 		@Override
 		public RestaurantDto removeRestaurant(String restaurantId) {
 			RestaurantDto r = restaurantRepository.findById(restaurantId).get();
@@ -38,13 +52,20 @@ public class IRestaurantServiceImpl implements IRestaurantService{
 			return  r;
 
 		}
+		/* @author : Harshali
+	     * @return : Restaurant
+	     * @description : This method is to view restaurant by id in the repository and returns restaurant
+	     */
 		@Override
 		public RestaurantDto viewRestaurant(String restaurantId) {
 			Optional<RestaurantDto> findById = restaurantRepository.findById(restaurantId);
 			return findById.orElseThrow(() -> new RestaurantException("There are no restaurant having id:" + restaurantId));
 		}
 
-
+		/* @author : Harshali
+	     * @return : Restaurant
+	     * @description : This method is to view restaurant near by in the repository and returns restaurant
+	     */
 		@Override
 		public List<RestaurantDto> viewRestaurantNearBy(String location){
 			List<RestaurantDto> rest=restaurantRepository.findAll();
@@ -61,6 +82,10 @@ public class IRestaurantServiceImpl implements IRestaurantService{
 			return restaurants;
 		}
 
+		/* @author : Harshali
+	     * @return : Restaurant
+	     * @description : This method is to view restaurant by item name in the repository and returns restaurant
+	     */
 		@Override
 		public List<RestaurantDto> viewRestaurantByItemName(String name) {
 			List<RestaurantDto> r= restaurantRepository.findAll();

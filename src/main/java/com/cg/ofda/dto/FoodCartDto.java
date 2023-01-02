@@ -11,12 +11,14 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="FoodCart_Table")
 public class FoodCartDto {
 	@Id
 	@Column(name="Cart_Id",length = 5)
+	@NotNull(message="cart id cannot be null")
 	String cartId;
 	
 	@OneToOne

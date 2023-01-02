@@ -103,7 +103,7 @@ public class IBillServiceImpl implements IBillService{
 		return findById.orElseThrow(() -> new BillException("There are no bills having id:" + billId));
 	}
 	
-	/* @author : Swetha *
+	/* @author : Eurekha *
 	 * @return : List<BillDto> *
 	 * @description : This method displays the Bill as per the CutomerId  from the repository and returns the list of bills*/
 	
@@ -129,7 +129,7 @@ public class IBillServiceImpl implements IBillService{
 	}
 	
 	
-	/* @author : Usha *
+	/* @author : Eurekha*
 	 * @return : List<BillDto> *
 	 *@description : This method displays the Bills between the date range from the repository and returns the list of bills*/
 

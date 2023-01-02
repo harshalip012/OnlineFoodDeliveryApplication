@@ -106,6 +106,12 @@ public class IItemServiceImpl implements IItemService {
 	return resItems;
 	}
 	
+	
+
+	/* @author : Usha
+	 * @return : List of Items 
+	 * @description : This method return the list of Items by name from the repository 
+	 */
 	@Override
 	public List<ItemDto> viewAllItemsByRestaurant(String restId) throws ItemException{
 		if(restaurantRepository.existsById(restId)) {
@@ -117,6 +123,12 @@ public class IItemServiceImpl implements IItemService {
 			throw new ItemException("Restaurant Id not found");
 	}
 	
+	
+
+	/* @author : Usha
+	 * @return : List of Items 
+	 * @description : This method return the list of Items by name from the repository 
+	 */
 	@Override
 	public List<ItemDto> viewAllItemsByCategory(String catId){
 	if(cartRepository.existsById(catId)) {

@@ -12,6 +12,8 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="Restaurant_Table")
@@ -22,6 +24,7 @@ public class RestaurantDto {
 	
 		
 		@Column(name = "Restaurant_name", length = 20)
+		@Size(min=1,max=20,message="restaurant name must be in given limits")
 		String restaurantName;
 		
 		@OneToOne(cascade=CascadeType.ALL)

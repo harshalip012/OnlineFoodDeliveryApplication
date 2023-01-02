@@ -3,6 +3,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Category_Table")
@@ -11,8 +13,10 @@ public class CategoryDto {
 	
 		@Id
 		@Column(name="Cartegory_Id",length = 5)
+		@NotNull(message="Category id cannot be null")
 		String catId;
 		@Column(name="Category_Name",length = 20)
+		@NotBlank(message="category name cannot be blank")
 		String categoryName;
 		
 		public CategoryDto() {

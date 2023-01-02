@@ -15,15 +15,19 @@ import jakarta.persistence.ManyToMany;
 
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Item_Table")
 public class ItemDto {
 	@Id
 	@Column(name ="Item_Id", length = 5)
+	@NotNull(message="item id cannot be null")
 	String itemId;
 	
 	@Column(name = "Item_Name", length = 10)
+	@NotBlank(message="name cannot be null")
 	String itemName;
 	
 	@OneToOne(cascade=CascadeType.ALL)

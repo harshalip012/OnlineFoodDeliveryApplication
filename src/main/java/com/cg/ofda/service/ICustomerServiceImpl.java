@@ -66,6 +66,10 @@ public class ICustomerServiceImpl implements ICustomerService {
 		return findById.orElseThrow(() -> new CustomerException("There are no customer having id:" + custId));
 	}
 
+	/* @author : Swetha
+	 * @return : Customer 
+	 * @description : This method gets customer to the repository and returns customer
+	 */
 	@Override
 	public List<CustomerDto> viewAllCustomers() {
 		List<CustomerDto> crts = customerRepository.findAll();

@@ -3,6 +3,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name="Address_table")
 
@@ -10,20 +12,29 @@ public class AddressDto {
 	
 		@Id
 		@Column(name="Address_Id")
+	
 		String addressid;
+		@NotNull(message="Address cannot be blank")
 		@Column(name="Building_Name")
+		@NotBlank(message="Building name cannot be blank")
 		String buildingName;
 		@Column(name="Street_No")
+		@NotBlank(message="street number cannot be blank ")
 		String streetNo;
 		@Column(name="Area")
+		@NotBlank(message="area cannot be blank")
 		String area;
 		@Column(name="City")
+		@NotBlank(message="city cannot be blank")
 		String city;
 		@Column(name="State")
+		@NotBlank(message="state cannot be blank")
 		String state;
 		@Column(name="Country")
+		@NotBlank(message="country cannot be blank")
 		String country;
 		@Column(name="Pincode")
+		@NotBlank(message="pincode cannot be blank")
 		String pincode;
 		
 
